@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef MODELS_H
+#define MODELS_H
 
 typedef struct 
 {
@@ -10,5 +10,9 @@ typedef struct
 } Course;
 
 extern Course COURSE_LIST[100];
+extern int COURSE_COUNT;
 
 void generateCourses(); 
+
+
+#endif

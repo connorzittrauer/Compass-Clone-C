@@ -55,4 +55,6 @@ void generateCourses() {
     COURSE_LIST[9].coursePrice = 230.0;
     strcpy(COURSE_LIST[9].courseName, "PSY 101");
     strcpy(COURSE_LIST[9].courseDescription, "Fundamentals of Psychology");
+
+
 }
