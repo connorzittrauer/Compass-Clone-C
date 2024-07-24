@@ -10,8 +10,8 @@ typedef struct
 } Course;
 
 extern Course COURSE_LIST[100];
-extern int COURSE_COUNT;
 
 void generateCourses(); 
+void printCourses();
 
 #endif

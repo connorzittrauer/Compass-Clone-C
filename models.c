@@ -259,3 +259,16 @@ void generateCourses()
     strcpy(COURSE_LIST[49].courseName, "BIO 170");
     strcpy(COURSE_LIST[49].courseDescription, "Marine Biology");
 }
+
+void printCourses(Course* courseList, int courseListSize) {
+
+    // Generate the courses for priting
+    generateCourses(COURSE_LIST, 50);
+
+    for (int i=0; i < courseListSize; i++) {
+        printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
+        courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
+
+    }
+}
+
