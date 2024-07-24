@@ -1,0 +1,4 @@
+-Student should have ability to view available courses
+-Student should be able to add courses to a cart and see their price 
+-Student should be able to remove a course
+-Student should have the ability to look up a course by its course number

@@ -1,0 +1,138 @@
+# Compiled object files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+*.a
+*.so
+*.dylib
+*.dll
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Static Libraries
+*.lib
+*.a
+
+# Dynamic Libraries
+*.dll
+*.so
+*.dylib
+
+# Executable files
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.mod
+*.exp
+
+# VS Code settings
+.vscode/
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Windows image file caches
+*.stackdump
+*.core
+
+# Backup files
+*~ 
+*.bak
+*.swp
+*.swo
+*.swn
+*.tmp
+
+# Temporary files
+*.temp
+*.tmp
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# IDE files
+*.idea/
+.idea/
+*.iml
+
+# Other
+*.out
+*.obj
+*.pyc
+*.pyo
+*.pyd
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+*.bin
+*.class
+*.jar
+*.war
+*.ear
+*.html
+*.css
+*.js
+*.map
+*.spec
+*.moc
+*.qrc
+*.obj
+*.rcc
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.project
+*.metadata
+*.settings
+*.cmake
+
+# CMake
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+Makefile
+
+# Build directories
+/build/
+/dist/
+
+# Custom ignore patterns
+**/*.log
+**/*.bak
+**/*.swp
+**/tmp/
+**/node_modules/
