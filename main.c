@@ -16,9 +16,9 @@ void printCourses(Course* courseList, int courseListSize) {
 int main() {
 
     generateCourses();
-    printCourses(COURSE_LIST, 10);
+    printCourses(COURSE_LIST, 50);
 
-    // and so on until 50...
+
     return 0;
 }
 

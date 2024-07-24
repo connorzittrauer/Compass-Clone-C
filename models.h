@@ -14,5 +14,4 @@ extern int COURSE_COUNT;
 
 void generateCourses(); 
 
-
 #endif
