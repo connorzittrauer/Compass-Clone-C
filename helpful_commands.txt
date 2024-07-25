@@ -1,0 +1,8 @@
+//command to relink files, example 'course.c' is being renamed
+gcc main.c course.c -o main.exe && main.exe
+
+//command to execute full program
+cls && gcc main.c models.c -o main.exe && main.exe
+
+//run the make command
+mingw32-make run

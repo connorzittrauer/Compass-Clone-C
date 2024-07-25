@@ -3,7 +3,8 @@
 #include <string.h>
 #include "models.h"
 
-Course COURSE_LIST[100];
+Course COURSE_LIST[50];
+int COURSE_LIST_SIZE = 50; //Course List SIze Capped at 50
 
 void generateCourses()
 {
@@ -255,17 +256,28 @@ void generateCourses()
     strcpy(COURSE_LIST[48].courseDescription, "Thermodynamics");
 
     COURSE_LIST[49].CRN = 140;
-    COURSE_LIST[49].coursePrice = 135.0;
-    strcpy(COURSE_LIST[49].courseName, "BIO 170");
+    COURSE_LIST[49].coursePrice = 135.45;
+    strcpy(COURSE_LIST[49].courseName, "BIO 173");
     strcpy(COURSE_LIST[49].courseDescription, "Marine Biology");
 }
 
-void printCourses(Course* courseList, int courseListSize) {
+int courseSearch(Course* courseList, int CRN) {
+    for (int i=0; i< COURSE_LIST_SIZE; i++) {
 
-    // Generate the courses for priting
-    generateCourses(COURSE_LIST, 50);
+        if (courseList[i].CRN == CRN) {
+        printf("Course Found: ");
+        printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
+        courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
+        }
+    
+    }
+    return;
+}
 
-    for (int i=0; i < courseListSize; i++) {
+void printCourses(Course* courseList) {
+
+    // Generate the courses for printing
+    for (int i=0; i < COURSE_LIST_SIZE; i++) {
         printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
         courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
 

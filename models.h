@@ -9,9 +9,10 @@ typedef struct
     char courseDescription[500];
 } Course;
 
-extern Course COURSE_LIST[100];
+extern Course COURSE_LIST[50];
 
 void generateCourses(); 
 void printCourses();
+int courseSearch();
 
 #endif
