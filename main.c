@@ -4,15 +4,12 @@
 #include "models.h"
 #include <stdbool.h>
 
-
+int CRN; 
 
 int main() {
 
     generateCourses();
     userInterface();
-
-
-
     return 0;
 }
 
@@ -41,16 +38,20 @@ void userInterface() {
             break;
         case 2:
             //logic for course search
-            int CRN; 
             printf("Enter the CRN: ");
             scanf("%d", &CRN);
-            courseSearch(COURSE_LIST, CRN);
+            courseSearch(COURSE_LIST, CRN, true);
             break; 
         case 3: 
-            //logic for adding course to a cart
+            // Look up course by CRN 
+            // Add to cart
+            printf("Enter the CRN to add course to cart: ");
+            scanf("%d", &CRN);
+            addToCart(CRN);
             break;
         case 4:
             //logic for viewing cart
+            viewCart();
             break;
         case 5:
             selecting = false;

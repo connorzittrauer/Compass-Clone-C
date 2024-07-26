@@ -262,35 +262,37 @@ void generateCourses()
     strcpy(COURSE_LIST[49].courseDescription, "Marine Biology Survey");
 }
 
-int courseSearch(Course* courseList, int CRN) {
+int courseSearch(Course* courseList, int CRN, bool printFlag) {
 
-    int foundCRN = 0;
+    int courseIndex = 0;
 
     // Search and set found course
     for (int i=0; i< COURSE_LIST_SIZE; i++) {
         if (courseList[i].CRN == CRN) {
-            foundCRN = i;
+            courseIndex = i;
         }
     }
-    if (foundCRN != 0) {
-        printf("--------------------------------------------------------------------------------\n");
-        printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
-        courseList[foundCRN].CRN, courseList[foundCRN].coursePrice, courseList[foundCRN].courseName, courseList[foundCRN].courseDescription);
-        printf("--------------------------------------------------------------------------------\n");
+    if (courseIndex != 0) {
+        if (printFlag) {
+            printf("--------------------------------------------------------------------------------\n");
+            printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
+            courseList[courseIndex].CRN, courseList[courseIndex].coursePrice, courseList[courseIndex].courseName, courseList[courseIndex].courseDescription);
+            printf("--------------------------------------------------------------------------------\n");
+        }
     }
     else {
-        printf("Course not found!\n");
+        if (printFlag){
+            printf("Course not found!\n");
+        }
     }
 
-    return foundCRN;
+    return courseIndex;
 }
 
 void printCourses(Course* courseList) {
-
     // Generate the courses for printing
     for (int i=0; i < COURSE_LIST_SIZE; i++) {
         printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
         courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
-
     }
 }
