@@ -20,7 +20,7 @@ void userInterface() {
     printf("Welcome to the Compass Management System!\n\n");
     
     while (selecting) {
-
+        printf("\n");
         printf("Select from the following options: \n");
         printf("1. View course catalog\n");
         printf("2. Search for a course by CRN\n");
@@ -28,6 +28,7 @@ void userInterface() {
         printf("4  View Cart\n");
         printf("5. Exit \n");
         printf("> ");
+
         scanf("%d", &option);    
 
         switch (option)

@@ -11,14 +11,6 @@ void addToCart(int CRN) {
     // Query by CRN to find the selected course from the COURSE_LIST array 
     courseIndex = courseSearch(COURSE_LIST, CRN, false);
 
-    // printf("\n");
-    // printf("Course added. \n");
-    // printf("Name: %s, Description: %s, Price: %.2f \n", 
-    // COURSE_LIST[courseIndex].courseName, COURSE_LIST[courseIndex].courseDescription, COURSE_LIST[courseIndex].coursePrice);
-    // printf("\n");
-
-    // // Add course to cart 
-    
     if (courseIndex <= 0) {
         printf("Error: Course not found. Cannot add to cart. \n");
     }
@@ -52,8 +44,3 @@ void viewCart() {
 }
 
 
-// typedef struct  {
-//     Course courses[5];
-//     double total;
-//     int courseCount;
-// } Cart;
