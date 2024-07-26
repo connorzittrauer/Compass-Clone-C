@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "models.h"
 
 Course COURSE_LIST[50];
@@ -258,20 +259,30 @@ void generateCourses()
     COURSE_LIST[49].CRN = 140;
     COURSE_LIST[49].coursePrice = 135.45;
     strcpy(COURSE_LIST[49].courseName, "BIO 173");
-    strcpy(COURSE_LIST[49].courseDescription, "Marine Biology");
+    strcpy(COURSE_LIST[49].courseDescription, "Marine Biology Survey");
 }
 
 int courseSearch(Course* courseList, int CRN) {
-    for (int i=0; i< COURSE_LIST_SIZE; i++) {
 
+    int foundCRN = 0;
+
+    // Search and set found course
+    for (int i=0; i< COURSE_LIST_SIZE; i++) {
         if (courseList[i].CRN == CRN) {
-        printf("Course Found: ");
-        printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
-        courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
+            foundCRN = i;
         }
-    
     }
-    return;
+    if (foundCRN != 0) {
+        printf("--------------------------------------------------------------------------------\n");
+        printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
+        courseList[foundCRN].CRN, courseList[foundCRN].coursePrice, courseList[foundCRN].courseName, courseList[foundCRN].courseDescription);
+        printf("--------------------------------------------------------------------------------\n");
+    }
+    else {
+        printf("Course not found!\n");
+    }
+
+    return foundCRN;
 }
 
 void printCourses(Course* courseList) {
@@ -283,4 +294,3 @@ void printCourses(Course* courseList) {
 
     }
 }
-

@@ -56,15 +56,8 @@ void userInterface() {
             selecting = false;
             break;
         default:
-            printf("Invalid input");
+            printf("Invalid input. ");
             break;
         } 
     }
 }
-
-
-
-
-
-
-
