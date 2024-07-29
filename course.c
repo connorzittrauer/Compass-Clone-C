@@ -5,7 +5,7 @@
 #include "models.h"
 
 Course COURSE_LIST[50];
-int COURSE_LIST_SIZE = 50; //Course List SIze Capped at 50
+int COURSE_LIST_SIZE = 50; // Course List SIze Capped at 50
 
 void generateCourses()
 {
@@ -262,26 +262,33 @@ void generateCourses()
     strcpy(COURSE_LIST[49].courseDescription, "Marine Biology Survey");
 }
 
-int courseSearch(Course* courseList, int CRN, bool printFlag) {
+int courseSearch(Course *courseList, int CRN, bool printFlag)
+{
 
     int courseIndex = 0;
 
     // Search and set found course
-    for (int i=0; i< COURSE_LIST_SIZE; i++) {
-        if (courseList[i].CRN == CRN) {
+    for (int i = 0; i < COURSE_LIST_SIZE; i++)
+    {
+        if (courseList[i].CRN == CRN)
+        {
             courseIndex = i;
         }
     }
-    if (courseIndex != 0) {
-        if (printFlag) {
+    if (courseIndex != 0)
+    {
+        if (printFlag)
+        {
             printf("--------------------------------------------------------------------------------\n");
             printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
-            courseList[courseIndex].CRN, courseList[courseIndex].coursePrice, courseList[courseIndex].courseName, courseList[courseIndex].courseDescription);
+                   courseList[courseIndex].CRN, courseList[courseIndex].coursePrice, courseList[courseIndex].courseName, courseList[courseIndex].courseDescription);
             printf("--------------------------------------------------------------------------------\n");
         }
     }
-    else {
-        if (printFlag){
+    else
+    {
+        if (printFlag)
+        {
             printf("Course not found!\n");
         }
     }
@@ -289,10 +296,12 @@ int courseSearch(Course* courseList, int CRN, bool printFlag) {
     return courseIndex;
 }
 
-void printCourses(Course* courseList) {
+void printCourses(Course *courseList)
+{
     // Generate the courses for printing
-    for (int i=0; i < COURSE_LIST_SIZE; i++) {
+    for (int i = 0; i < COURSE_LIST_SIZE; i++)
+    {
         printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
-        courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
+               courseList[i].CRN, courseList[i].coursePrice, courseList[i].courseName, courseList[i].courseDescription);
     }
 }

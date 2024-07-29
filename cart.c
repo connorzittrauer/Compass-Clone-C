@@ -5,42 +5,87 @@
 #include "models.h"
 
 int courseIndex;
-Cart shoppingChart = {.total = 0.0, .courseCount = 0};
+Cart shoppingCart = {.total = 0.0, .courseCount = 0};
 
-void addToCart(int CRN) {
-    // Query by CRN to find the selected course from the COURSE_LIST array 
+void addToCart(int CRN)
+{
+    // Query by CRN to find the selected course from the COURSE_LIST array
     courseIndex = courseSearch(COURSE_LIST, CRN, false);
 
-    if (courseIndex <= 0) {
+    if (courseIndex <= 0)
+    {
         printf("Error: Course not found. Cannot add to cart. \n");
     }
-    if (shoppingChart.courseCount < 5) {
-        shoppingChart.courses[shoppingChart.courseCount] = COURSE_LIST[courseIndex]; //add the course to the cart
-        shoppingChart.total += COURSE_LIST[courseIndex].coursePrice; // update the total price
-        shoppingChart.courseCount++; //increments amount of courses in the cart
+    if (shoppingCart.courseCount < 5)
+    {
+        shoppingCart.courses[shoppingCart.courseCount] = COURSE_LIST[courseIndex]; // add the course to the cart
+        shoppingCart.total += COURSE_LIST[courseIndex].coursePrice;                // update the total price
+        shoppingCart.courseCount++;                                                // increments amount of courses in the cart
 
-        printf("Course added. \n");
-        printf("Name: %s, Description: %s, Price: %.2f \n", 
-        COURSE_LIST[courseIndex].courseName, COURSE_LIST[courseIndex].courseDescription, COURSE_LIST[courseIndex].coursePrice);
+        printf("Course added --> ");
+        printf("Name: %s, Description: %s, Price: %.2f \n",
+               COURSE_LIST[courseIndex].courseName, COURSE_LIST[courseIndex].courseDescription, COURSE_LIST[courseIndex].coursePrice);
         printf("\n");
     }
-    else {
+    else
+    {
         printf("Cart is full");
     }
 }
+/* This function is a bit spaghetti-fied. I realized I have some structural
+ * issues with my models and the course search functionality that could be
+ * entirely rewritten/overhauled to make this code (and other functions) more readable.
+ */
+void removeFromCart(int CRN)
+{
 
-void viewCart() {
-    if (shoppingChart.courseCount == 0) {
-        printf("Shopping cart is empty.");
+    // Check if cart is empty
+    if (shoppingCart.courseCount == 0)
+    {
+        printf("Cart is already empty.");
     }
-    else {
-        for (int i=0;i < shoppingChart.courseCount; i++) {
-            printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
-            shoppingChart.courses[i].CRN, shoppingChart.courses[i].coursePrice, shoppingChart.courses[i].courseName, shoppingChart.courses[i].courseDescription);
+
+    int indexToRemove = -1;
+    for (int i = 0; i < shoppingCart.courseCount; i++)
+    {
+        if (shoppingCart.courses[i].CRN == CRN)
+        {
+            indexToRemove = i;
         }
-        printf("Total items in cart: %d\n", shoppingChart.courseCount);
-        printf("Total price: $%.2f\n", shoppingChart.total);
     }
+    // if the course is not found, print error.
+    if (indexToRemove == -1)
+    {
+        printf("Course not found. Cannot remove. \n");
+    }
+
+    // Remove the course and update the total price
+    shoppingCart.total -= shoppingCart.courses[indexToRemove].coursePrice;
+    for (int i = indexToRemove; i < shoppingCart.courseCount - 1; i++)
+    {
+        shoppingCart.courses[i] = shoppingCart.courses[i + 1];
+    }
+
+    // Decrement the course count
+    shoppingCart.courseCount--;
+
+    printf("Course removed.\n");
 }
 
-
+void viewCart()
+{
+    if (shoppingCart.courseCount == 0)
+    {
+        printf("Shopping cart is empty.\n");
+    }
+    else
+    {
+        for (int i = 0; i < shoppingCart.courseCount; i++)
+        {
+            printf("CRN: %d, Price: %.2f, Name: %s, Description: %s\n",
+                   shoppingCart.courses[i].CRN, shoppingCart.courses[i].coursePrice, shoppingCart.courses[i].courseName, shoppingCart.courses[i].courseDescription);
+        }
+        printf("Total items in cart: %d\n", shoppingCart.courseCount);
+        printf("Total price: $%.2f\n", shoppingCart.total);
+    }
+}
